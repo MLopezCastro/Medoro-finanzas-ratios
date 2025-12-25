@@ -1,0 +1,27 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Data (no subir staging ni input)
+data/staging_csv/
+data/input_excels/
+data/**/*.csv
+data/**/*.xlsx
+
+# Power BI artifacts
+powerbi/**/*.pbix
+powerbi/**/*.pbit
+powerbi/**/.pbi/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# Logs
+*.log
+pipeline/logs/
