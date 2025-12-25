@@ -1,27 +1,27 @@
-# OS / editor
-.DS_Store
-Thumbs.db
-.vscode/
-.idea/
-
-# Data (no subir staging ni input)
-data/staging_csv/
+# ---- Data (nunca versionar) ----
 data/input_excels/
+data/staging_csv/
 data/**/*.csv
 data/**/*.xlsx
+data/**/*.xls
 
-# Power BI artifacts
+# ---- Power BI (no versionar en repo público) ----
 powerbi/**/*.pbix
 powerbi/**/*.pbit
-powerbi/**/.pbi/
 
-# Python
+# ---- Python ----
 __pycache__/
 *.pyc
 .venv/
 venv/
 .env
 
-# Logs
+# ---- OS / editors ----
+.DS_Store
+Thumbs.db
+.vscode/
 *.log
-pipeline/logs/
+
+# ---- Large / misc ----
+*.zip
+*.7z
