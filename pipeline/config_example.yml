@@ -1,0 +1,57 @@
+# Medoro Finanzas Ratios — Pipeline config (EJEMPLO PARA REPO)
+# ------------------------------------------------------------
+# Este archivo ES SOLO un ejemplo para documentación.
+# No contiene rutas reales ni credenciales.
+# Cada entorno (PC/servidor) debe copiarlo como:
+#   pipeline/config/config.yml
+# y completar sus rutas locales.
+
+project:
+  name: "Medoro_Finanzas_Ratios"
+  environment: "example"
+
+paths:
+  # Carpeta con Excels de entrada (NO se versiona en Git)
+  input_excels: "C:/PATH/TO/medoro_finanzas_pipeline/input_excels/"
+
+  # Carpeta donde el pipeline genera CSV listos para SQL (NO se versiona)
+  staging_csv: "C:/PATH/TO/medoro_finanzas_pipeline/staging_csv/"
+
+  # Carpeta de logs del pipeline (NO se versiona)
+  logs: "C:/PATH/TO/medoro_finanzas_pipeline/logs/"
+
+pipeline:
+  # Si true, valida existencia de archivos esperados antes de convertir
+  validate_inputs: true
+
+  # Sobrescribe CSV si ya existen (en staging_csv)
+  overwrite_csv: true
+
+  # Encoding recomendado para BULK INSERT en SQL Server
+  csv_encoding: "utf-8"
+
+  # Delimitador estándar
+  csv_delimiter: ","
+
+  # Incluye header en CSV (FIRSTROW=2 en SQL)
+  csv_has_header: true
+
+files:
+  # Lista completa de archivos esperados por el script SQL maestro (SILVER x 10)
+  # Nombres EXACTOS de los CSV que SQL va a leer.
+  expected_csv:
+    - "CHEQUES.csv"
+    - "CHEQUES_EMITIDOS_2.csv"
+    - "CTACTE_PROVEEDOR.csv"
+    - "EXTRA_RATIOS.csv"
+    - "IMPORTACIONES_ADUANA.csv"
+    - "IMPUESTOS.csv"
+    - "INTERESES.csv"
+    - "PROYECCION_COBRANZAS.csv"
+    - "PROYECCION_SUELDOS.csv"
+    - "SALDOS_BANCARIOS.csv"
+
+notes:
+  # Importante para SQL Server:
+  # El servicio de SQL Server debe tener permisos de lectura sobre staging_csv.
+  sql_bulk_insert_requires_filesystem_access: true
